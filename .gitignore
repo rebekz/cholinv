@@ -1,0 +1,2 @@
+magma_cholesky_inv.o
+magma_cholesky_inv_gpu
