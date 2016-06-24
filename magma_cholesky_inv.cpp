@@ -42,7 +42,6 @@ double *cholesky_gpu(double *ml, int m) {
 }
 
 double *cholesky(double *ml, int m) {
- 	magma_int_t mm = m*m;
  	magma_int_t info;
  
  	magma_dpotrf('L',m,ml,m,&info);
