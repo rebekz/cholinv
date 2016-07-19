@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
  	magma_timestr_t start , end;
  	double gpu_time ;
  	double *c;
- 	int dim[] = {2000,3000,4000,5000};
+ 	int dim[] = {20000,30000,40000};
  	int i,n;
  	n = sizeof(dim) / sizeof(dim[0]);
  
