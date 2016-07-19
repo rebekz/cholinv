@@ -83,12 +83,15 @@ int main(int argc, char** argv) {
  		magma_int_t m = dim[i];
  		magma_int_t mm=m*m;
  		magma_err_t err;
+
  		err = magma_dmalloc_cpu ( &c , mm );
- 		//double ml[] = {25, 15, -5, 15, 18, 0, -5, 0, 11};
+ 		//generate random symmetric, positive matrix
  		double *ml = generate_sym_matrix(m);
  
  		start = get_current_time();
- 
+ 		
+ 		//find the inverse matrix for MxM symmetric, positive definite matrix using the cholesky decomposition.
+ 		//Compute GPU cholesky decomposition with CPU interface
  		c = cholesky(ml, m);
  
  		end = get_current_time();
@@ -97,6 +100,7 @@ int main(int argc, char** argv) {
  
  		printf("gpu time for %dx%d: %7.5f sec\n", m, m, gpu_time);
 
+ 		//copy upper diag
  		copy_upper_diag(c,m);
 
  		free(c);
